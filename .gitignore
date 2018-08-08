@@ -1,0 +1,9 @@
+*.iml
+.gradle
+/local.properties
+.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml

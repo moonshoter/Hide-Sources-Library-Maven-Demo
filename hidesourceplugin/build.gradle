@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        google()
+    }
+}
+repositories {
+    jcenter()
+    mavenCentral()
+    google()
+}
+dependencies {
+    //gradle sdk
+    compile gradleApi()
+    //groovy sdk
+    compile localGroovy()
+    compileOnly 'com.android.tools.build:gradle:3.0.0'
+    compile 'com.github.javaparser:javaparser-core:+'
+}
+
+
+//设置maven deployer
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //设置插件的GAV参数
+            pom.groupId = 'com.moonshoter.plugin'
+            pom.artifactId = 'HideSourcePlugin'
+            pom.version = '0.0.1'
+            //文件发布到下面目录
+            repository(url: uri('../repo'))
+        }
+    }
+}
